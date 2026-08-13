@@ -1,1 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Blog no GitHub</title>
+    <style>
+        body {
+            background-color: #b30000;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid #ff6666;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        article {
+            background-color: #800000;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .interactions {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #a30000;
+        }
+
+        .btn {
+            background-color: #ffffff;
+            color: #800000;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.1s ease, background-color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            background-color: #ffe6e6;
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        [contenteditable="true"]:hover {
+            outline: 1px dashed #ffffff;
+            cursor: text;
+        }
+        
+        [contenteditable="true"]:focus {
+            outline: 2px solid #ffffff;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1 contenteditable="true">Título do Meu Blog</h1>
+            <p contenteditable="true">Clique em qualquer texto desta página para editar diretamente!</p>
+        </header>
+
+        <article>
+            <h2 contenteditable="true">Título da Postagem</h2>
+            <p contenteditable="true">
+                Escreva o conteúdo do seu artigo aqui. Este texto é totalmente editável direto no navegador! 
+                Você pode substituir essa mensagem por novidades, tutoriais ou qualquer outro assunto que queira compartilhar no GitHub.
+            </p>
+
+            <div class="interactions">
+                <button class="btn" onclick="adicionarInteracao('likeCount')">
+                    👍 Like <span id="likeCount">0</span>
+                </button>
+                
+                <button class="btn" onclick="adicionarInteracao('dislikeCount')">
+                    👎 Dislike <span id="dislikeCount">0</span>
+                </button>
+                
+                <button class="btn" onclick="adicionarInteracao('heartCount')">
+                    ❤️ Coração <span id="heartCount">0</span>
+                </button>
+            </div>
+        </article>
+    </div>
+
+    <script>
+        function adicionarInteracao(idElemento) {
+            const contador = document.getElementById(idElemento);
+            let valorAtual = parseInt(contador.innerText);
+            contador.innerText = valorAtual + 1;
+        }
+    </script>
+
+</body>
+</html>
